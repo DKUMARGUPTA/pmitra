@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts'
-import { Bird, Feed, TrendingUp, AlertTriangle, ArrowUp, ArrowDown } from 'lucide-react'
+import { Bird, Warehouse, TrendingUp, AlertTriangle, ArrowUp, ArrowDown } from 'lucide-react'
 import axios from 'axios'
 
 const API_URL = '/api'
@@ -69,7 +69,7 @@ export default function Dashboard() {
       {/* Stats Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <StatCard icon={Bird} label="Total Birds" value={stats.totalBirds} unit="birds" trend="up" />
-        <StatCard icon={Feed} label="Feed Consumed" value={stats.feedConsumed} unit="kg" trend="up" />
+        <StatCard icon={Warehouse} label="Feed Consumed" value={stats.feedConsumed} unit="kg" trend="up" />
         <StatCard icon={TrendingUp} label="FCR" value={stats.fcr} unit="" trend="down" />
         <StatCard icon={AlertTriangle} label="Mortality" value={stats.mortality} unit="birds" trend="down" />
       </div>

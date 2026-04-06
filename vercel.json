@@ -4,7 +4,16 @@
   "framework": "vite",
   "installCommand": "cd client && npm install",
   "routes": [
-    { "handle": "filesystem" },
-    { "src": "/api/(.*)", "dest": "/api/index.js" }
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/index.js"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/client/dist/$1"
+    }
   ]
 }

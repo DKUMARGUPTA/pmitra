@@ -7,6 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Vercel requires the app to be exported
 const JWT_SECRET = process.env.JWT_SECRET || 'poultry-mitra-secret-key';
 
 // In-memory data store for demo
