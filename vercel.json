@@ -3,14 +3,26 @@
   "outputDirectory": "client/dist",
   "framework": "vite",
   "installCommand": "cd client && npm install",
+  "functions": {
+    "api/index.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
   "rewrites": [
     {
       "source": "/api/(.*)",
       "destination": "/api/index.js"
-    },
+    }
+  ],
+  "headers": [
     {
-      "source": "/((?!api/).*)",
-      "destination": "/client/dist/index.html"
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        }
+      ]
     }
   ]
 }
