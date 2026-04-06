@@ -10,6 +10,7 @@ import Ledger from './pages/Ledger'
 import Inventory from './pages/Inventory'
 import MarketPrices from './pages/MarketPrices'
 import AIChat from './pages/AIChat'
+import AdminPanel from './pages/AdminPanel'
 import Layout from './components/Layout'
 
 function PrivateRoute({ children }) {
@@ -36,6 +37,7 @@ export default function App() {
           <Route path="inventory" element={<Inventory />} />
           <Route path="market" element={<MarketPrices />} />
           <Route path="ai-chat" element={<AIChat />} />
+          <Route path="admin" element={<AdminPanel />} />
         </Route>
       </Routes>
     </BrowserRouter>

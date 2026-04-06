@@ -102,6 +102,7 @@ export default function Register() {
               <option value="farmer">🐔 Farmer</option>
               <option value="dealer">🏪 Dealer</option>
               <option value="integrator">🏭 Integrator</option>
+              <option value="admin">⚙️ Admin</option>
             </select>
           </div>
 

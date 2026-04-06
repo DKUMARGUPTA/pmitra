@@ -11,7 +11,8 @@ import {
   MessageSquare,
   LogOut,
   Menu,
-  X
+  X,
+  Settings
 } from 'lucide-react'
 import { useState } from 'react'
 
@@ -24,6 +25,7 @@ const navItems = [
   { path: '/inventory', icon: Package, label: 'Inventory' },
   { path: '/market', icon: TrendingUp, label: 'Market' },
   { path: '/ai-chat', icon: MessageSquare, label: 'Mitra AI' },
+  { path: '/admin', icon: Settings, label: 'Admin', adminOnly: true },
 ]
 
 export default function Layout() {
@@ -75,6 +77,8 @@ export default function Layout() {
             {navItems.map((item) => {
               const Icon = item.icon
               const isActive = location.pathname === item.path
+              // Hide admin-only items for non-admins
+              if (item.adminOnly && user?.role !== 'admin') return null
               return (
                 <Link
                   key={item.path}

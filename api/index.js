@@ -57,6 +57,15 @@ app.post('/api/auth/login', async (req, res) => {
   }
 });
 
+// Get all users (admin only)
+app.get('/api/users', auth, (req, res) => {
+  if (req.user.role !== 'admin') {
+    return res.status(403).json({ error: 'Admin only' });
+  }
+  const allUsers = users.map(({ password_hash, ...u }) => u);
+  res.json(allUsers);
+});
+
 const auth = (req, res, next) => {
   const authHeader = req.headers.authorization;
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
